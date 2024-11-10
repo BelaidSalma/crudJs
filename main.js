@@ -12,16 +12,23 @@ let search=document.getElementById('search');
 let mood='create';
 let tmp;
 //get total
-function getTotal()
-{
- if (price.value!='') {
-    let result = (+price.value + +taxes.value + +ads.value) - +discount.value;
-    total.innerHTML= result;
-    total.style.background= '#228b22';
- }else{
-   total.innerHTML = '';
-   total.style.background='#fd2727';
- }
+function getTotal() {
+  //convert the value to float
+  let p = parseFloat(price.value) || 0;
+  let t = parseFloat(taxes.value) || 0;
+  let a = parseFloat(ads.value) || 0;
+  let d = parseFloat(discount.value) || 0;
+
+  // Check if all inputs are zero or empty
+  if (p === 0 && t === 0 && a === 0 && d === 0) {
+    total.innerHTML = "0"; // Reset total to 0
+    total.classList.remove("total-on"); // Remove the class
+  } else {
+    // Perform the calculation
+    let result = p + t + a - d;
+    total.innerHTML = result.toFixed(2); // Format to 2 decimal places
+    total.classList.add("total-on"); // Add the class
+  }
 }
 //  create product
 //si je stock pas les donne dans array chaque fois que je veux
