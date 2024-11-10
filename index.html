@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+ 
+</head>
+<body>
+    <div class="crud">
+        <div class="head">
+            <h2>CRUD</h2>
+            <p>PRODUCT MANAGEMENT SYSTEM</p>
+        </div>
+        <div class="inputs">
+            <input type="text" placeholder="title" id="title">
+            <div class="price">
+                <input onkeyup="getTotal()" type="number" placeholder="price" id="price">
+                <input onkeyup="getTotal()" type="number" placeholder="taxes" id="taxes">
+                <input  onkeyup="getTotal()" type="number" placeholder="ads" id="ads">
+                <input  onkeyup="getTotal()" type="number" placeholder="Discout" id="discount">
+                <small id="total"></small>
+            </div>
+            <input type="number" placeholder="count" id="count">
+            <input type="text" placeholder="category" id="category">
+            <button id="submit">Create</button>
+        </div>
+        <div class="outputs">
+            <div class="searchBlock">
+                <input  onkeyup="searchData(this.value)" type="text" id="search" placeholder="search" >
+                <div class="btnSearch">
+                    <button onclick="getSearchMood(this.id)" id="searchTitle">Search by Title</button>                    
+                    <button onclick="getSearchMood(this.id)" id="searchCategory">Search by Category</button>
+
+                </div>
+            </div>
+            <div id="deleteAll">
+                
+            </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Taxes</th>
+                    <th scope="col">ads</th>
+                    <th scope="col">Discout</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">update</th>
+                    <th scope="col">delete</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                   
+                </tbody>
+        </div>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
